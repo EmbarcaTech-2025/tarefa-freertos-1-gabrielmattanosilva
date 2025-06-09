@@ -54,6 +54,7 @@ target_link_libraries(${ProjectName}
     pico_stdlib
     FreeRTOS-Kernel-Heap4
     hardware_pwm
+    hardware_clocks
     hardware_gpio
     pico_stdio_usb
     )
