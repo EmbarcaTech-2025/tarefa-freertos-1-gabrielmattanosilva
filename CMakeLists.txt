@@ -40,6 +40,7 @@ pico_sdk_init()
 
 add_executable(${ProjectName}
     main.c
+    ./include/rgb_led.c
 )
 
 target_include_directories(${ProjectName} PRIVATE
@@ -47,9 +48,9 @@ target_include_directories(${ProjectName} PRIVATE
     ${CMAKE_CURRENT_LIST_DIR}/include
 )
 
-target_link_libraries(${ProjectName} 
-    pico_stdlib 
-    FreeRTOS-Kernel-Heap4 
+target_link_libraries(${ProjectName}
+    pico_stdlib
+    FreeRTOS-Kernel-Heap4
     hardware_i2c
     )
 
