@@ -139,4 +139,8 @@ to exclude the API function. */
 
 /* A header file that defines trace macro can be included here. */
 
+/* Enable printf via USB */
+#define configUSE_STDIO 1
+#define configPRINTF(X) printf X
+
 #endif /* FREERTOS_CONFIG_H */

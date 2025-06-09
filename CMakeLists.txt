@@ -40,6 +40,8 @@ pico_sdk_init()
 
 add_executable(${ProjectName}
     ./src/main.c
+    ./include/buttons.c
+    ./include/buzzer.c
     ./include/rgb_led.c
 )
 
@@ -51,7 +53,9 @@ target_include_directories(${ProjectName} PRIVATE
 target_link_libraries(${ProjectName}
     pico_stdlib
     FreeRTOS-Kernel-Heap4
-    hardware_i2c
+    hardware_pwm
+    hardware_gpio
+    pico_stdio_usb
     )
 
 pico_add_extra_outputs(${ProjectName})
