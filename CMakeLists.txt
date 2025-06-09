@@ -39,7 +39,7 @@ project(${ProjectName} C CXX ASM)
 pico_sdk_init()
 
 add_executable(${ProjectName}
-    main.c
+    ./src/main.c
     ./include/rgb_led.c
 )
 
