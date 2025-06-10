@@ -1,3 +1,11 @@
+/**
+ * @file main.c
+ * @brief Arquivo principal do projeto.
+ *
+ * Este arquivo contém a função principal, que inicializa o hardware, configura as tarefas
+ * do FreeRTOS e trata os callbacks dos botões para controlar o LED RGB e o buzzer.
+ */
+
 #include <stdio.h>
 #include "pico/stdlib.h"
 #include "pico/stdio_usb.h"
@@ -15,7 +23,10 @@ TaskHandle_t buzzer_task_handle = NULL;
 static bool led_suspended = false;
 static bool buzzer_suspended = false;
 
-/* Callback para o botão A (controle do LED) */
+/**
+ * @brief Callback para o botão A (controle do LED RGB).
+ *
+ */
 static void button_a_handler(void)
 {
   if (led_suspended)
@@ -31,7 +42,10 @@ static void button_a_handler(void)
   led_suspended = !led_suspended;
 }
 
-/* Callback para o botão B (controle do buzzer) */
+/**
+ * @brief Callback para o botão B (controle do buzzer).
+ *
+ */
 static void button_b_handler(void)
 {
   if (buzzer_suspended)
@@ -47,7 +61,10 @@ static void button_b_handler(void)
   buzzer_suspended = !buzzer_suspended;
 }
 
-/* Função principal */
+/**
+ * @brief Função principal.
+ *
+ */
 int main(void)
 {
   /* Inicializações básicas */

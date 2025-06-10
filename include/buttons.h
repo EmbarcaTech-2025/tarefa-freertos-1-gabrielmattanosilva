@@ -1,3 +1,11 @@
+/**
+ * @file buttons.h
+ * @brief Definições para o controle dos botões.
+ *
+ * Este arquivo contém as definições dos pinos e funções para o controle dos botões A e B,
+ * incluindo a definição do tempo de debounce e o tipo de callback.
+ */
+
 #ifndef BUTTONS_H
 #define BUTTONS_H
 

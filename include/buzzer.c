@@ -1,3 +1,11 @@
+/**
+ * @file buzzer.c
+ * @brief Implementação do controle do buzzer.
+ *
+ * Este arquivo contém a implementação das funções para inicialização e controle
+ * do buzzer, incluindo a tarefa que gera o sinal PWM para o buzzer.
+ */
+
 #include "buzzer.h"
 #include "pico/stdlib.h"
 #include "hardware/clocks.h"
@@ -9,6 +17,10 @@ static volatile bool buzzer_suspended = false;
 static uint slice_num;
 static uint channel;
 
+/**
+ * @brief Inicializa o buffer.
+ *
+ */
 void buzzer_init(void)
 {
     gpio_set_function(BUZZER_PIN, GPIO_FUNC_PWM);
@@ -18,6 +30,12 @@ void buzzer_init(void)
     pwm_set_gpio_level(BUZZER_PIN, 0);
 }
 
+/**
+ * @brief Tarefa do buzzer.
+ *
+ * @param pvParameters Parâmetros da tarefa (não utilizado).
+ *
+ */
 void buzzer_task(void *pvParameters)
 {
     buzzer_init();
@@ -41,12 +59,20 @@ void buzzer_task(void *pvParameters)
     }
 }
 
+/**
+ * @brief Suspende a tarefa do buzzer.
+ *
+ */
 void suspend_buzzer_task(void)
 {
     buzzer_suspended = true;
     pwm_set_chan_level(slice_num, channel, 0);
 }
 
+/**
+ * @brief Resume a tarefa do buzzer.
+ *
+ */
 void resume_buzzer_task(void)
 {
     buzzer_suspended = false;

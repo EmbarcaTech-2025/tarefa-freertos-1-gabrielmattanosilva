@@ -1,3 +1,11 @@
+/**
+ * @file buzzer.h
+ * @brief Definições para o controle do buzzer.
+ *
+ * Este arquivo contém as definições para inicialização e controle do buzzer,
+ * incluindo suspensão e retomada da tarefa do buzzer.
+ */
+
 #ifndef BUZZER_H
 #define BUZZER_H
 
